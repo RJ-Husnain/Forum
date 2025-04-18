@@ -1,0 +1,726 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    /* background-color: rgb(27, 27, 27); */
+    background-color: rgb(3 12 12);
+    font-family: "Raleway", sans-serif;
+    position: relative;
+    color: aliceblue;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar Goes here */
+.navbar {
+    height: 50px;
+    background-color: rgb(33 38 41 / 64%);
+    justify-content: space-between;
+    padding: 2px 30px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 2;
+    /* position: sticky; */
+}
+
+/* hamburger */
+#hamburger {
+    display: none;
+}
+
+/* Navigation */
+.navigation {
+    gap: 40px;
+    justify-content: flex-start;
+}
+
+/* Menu */
+.menu ul {
+    list-style: none;
+    gap: 25px;
+}
+
+.menu ul li {
+    color: aliceblue;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.menu ul li a{
+    text-decoration: none;
+    color: aliceblue;
+    transition: all 0.3s ease;
+}
+.menu ul li a:hover{
+    color: #ffd700;
+}
+
+.menu ul li:hover {
+    color: #ffd700;
+}
+
+.menu ul span img {
+    margin-top: 5px;
+}
+
+/* logo */
+.logo img {
+    width: 100px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+/* Buttons */
+.buttons {
+    gap: 15px;
+}
+
+
+.navbar button {
+    padding: 6px 10px;
+    background-color: #ffd700;
+    /* background-color: #00e5ff; */
+    border: none;
+    border-radius: 5px;
+    color: rgb(33 38 41);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    box-shadow: 1px 1px 5px #ffd700, -1px -1px 5px #ffd700;
+}
+
+
+#login {
+    background-color: #00e5ff;
+}
+
+#login:hover {
+    box-shadow: 1px 1px 5px #00e5ff, -1px -1px 5px #00e5ff;
+}
+
+/* Navbar close here */
+
+
+/* header Goes Here */
+.header{
+    overflow: hidden;
+    position: relative;
+    background: url('/Forum/images/header.jpg') no-repeat center center/cover;
+    /* background: url('/images/header.jpg') no-repeat center center/cover; */
+    height:70vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6); 
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    flex-direction: column;
+    align-items:flex-start;
+    padding: 68px 0px 0px 55px;
+  }
+
+
+  /* Text in Header */
+  .text{
+    align-items:flex-end;
+    flex-direction: column;
+  }
+.overlay .text h3 {
+    font-size: 60px; 
+    font-weight: 600;
+    /* margin-bottom: 15px; */
+    line-height: 55px;
+    
+  }
+
+.overlay .text h3 span {
+    color: #ffd700; 
+    font-weight: 800;
+    font-size: 70px; 
+    text-shadow: 1px 3px 6px #000e0f;
+  }
+.overlay .text p {
+    font-size: 17px;
+    opacity: 0.9;
+    font-weight: 600;
+    color:#d5d5d5;
+  }
+  /* Text Outside the .text */
+.para  {
+   width: 35%;
+   margin-top: 30px;
+   padding: 0px 5px;
+   color:#d5d5d5;
+  }
+  /* Explore Button */
+  .exploreBtn{
+    margin: 20px 8px;
+    padding: 8px 6px;
+    border: none;
+    border-radius: 5px;
+    background: #ffd700;
+    font-weight: 700;
+    color: #000a0c;
+    transition: all 0.3s ease;
+  }
+
+
+  /* Heading */
+  .heading{
+    margin: 27px 0px 22px 42px;
+    font-size: 25px;
+    /* color: #ffd700  ; */
+  }
+
+  /* Catagory COntainer */
+  .container{
+    padding: 10px 52px 80px 10px;
+    flex-wrap: wrap;
+  }
+  .container a{
+  text-decoration: none;
+  color: aliceblue;
+  }
+/* Card */
+.card{
+    width: 230px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 6px;
+    padding: 9px;
+    background: #181818;
+    margin: 10px;
+    transition: all 0.3s ease;
+}
+.card img{
+    width: 100%;
+    height: 140px; 
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.card h2{
+    font-size: 32px;
+}
+
+.card p{
+    font-size: 10px;
+    text-align: center;
+    color: #bbbbbb;
+}
+.card div{
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10  px;
+}
+
+.card:hover{
+    background: rgb(41, 41, 41);
+}
+
+/* THread Contaainer */
+.threadContainer{
+    width: 100%;
+    flex-direction: column;
+    padding: 0px 40px;
+    margin-top: 80px;
+}
+
+.threadHeader{
+    padding: 20px;
+    background-color: #1b1b1b;
+    border-radius: 15px;
+    gap: 20px;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+.threadHeader div{
+    width: 50%;
+}
+.threadHeader div h2{
+    font-size: 40px;
+    font-weight: 700;
+}
+.threadHeader div p{
+    font-size: 14px;
+  color: rgb(202, 202, 202);
+}
+.threadHeader img{
+    width: 220px;
+    border-radius: 10px;
+
+}
+/* Question Container */
+.threadContainer .heading{
+    margin: 26px 0px 0px 0px;
+    font-size: 20px;
+}
+
+.questionForm {
+    display: flex;
+    flex-direction: column;
+    background: #181818;
+    border-radius: 12px;
+    padding: 20px;
+    gap: 10px;
+    transition: all 0.3s ease;
+    width: 50%;
+    margin: 18px auto; /* Center it horizontally */
+    align-items: stretch;
+  }
+  
+  /* On hover */
+  .questionForm:hover {
+    background: #1b1b1b;
+  }
+  
+  /* Inside the form */
+  .questionForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Form fields container */
+  .questionForm form div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+  }
+  
+  /* Inputs and textarea styling */
+  .questionForm form input,
+  .questionForm form textarea {
+    width: 100%;
+    padding: 15px 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #303030;
+    color: #fff;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  .questionForm form textarea {
+    resize: vertical;
+  }
+  
+  /* Button styling */
+  .questionForm form button {
+    align-self: flex-end;
+    padding: 10px 15px;
+    background: #ffd700;
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .questionForm form button:hover {
+    box-shadow: 1px 1px 5px #ffd700, -1px -1px 5px #ffd700;
+  }
+
+/* Thread box */
+.threadBox{
+    margin: 30px 62px 80px 62px;
+    flex-direction: column;
+    gap: 20px;
+}
+.threadBox a{
+   text-decoration: none;
+   color: white;
+   width: 100%;
+}
+
+
+/* thread */
+.thread{
+    width: 100%;
+    background-color: #181818;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin: 20px 0px;
+}
+.thread:hover{
+    background-color: #202020;
+}
+.thread div{
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.thread div div{
+    gap: 2px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.thread div div h3{
+    font-size: 16px;
+}
+.thread div div p{
+    color: rgb(150, 150, 150);
+    font-size: 12px;
+}
+.thread img{
+    width: 45px;
+}
+
+/* No thread */
+.nothread{
+    width: 56vw; 
+    background-color: #181818;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    padding: 10px 40px;
+    height: 80px;
+    gap: 20px; 
+    margin: 20px;
+    justify-content: flex-start;
+}
+.nothread img{
+    width: 50px;
+}
+.nothread p{
+    font-size: 14px;
+    color: #757575;
+}
+
+/* commentContainer */
+.commentContainer{
+    margin:80px 62px 50px 62px;
+}
+/* COmment Box */
+.commentBox{
+    flex-direction: column;
+    align-items: flex-start;
+    background: #181818;
+    padding: 15px;
+    gap: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.commentBox:hover{
+    background:rgb(41, 41, 41);
+}
+.commentBox h2{
+font-size:32px;
+}
+.commentBox p{
+   color: rgb(184, 184, 184);
+   font-size: 14px;
+}
+ .heading h3{
+font-size: 22px;
+width: 100%;
+text-align: center;
+ }
+ .heading h2{
+font-size: 25px;
+width: 100%;
+ }
+
+ /* Comment */
+ .comment{
+    width: 100%;
+    background-color: #181818;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin: 20px 0px;
+}
+ .comment div{
+    gap: 10px;
+}
+ .comment div h3{
+    font-weight:550;
+}
+ .comment img{
+    width: 45px;
+}
+.comment:hover{
+    background-color: #202020;
+}
+
+/* No Comment */
+.noComment{
+    width: 40%; 
+    margin: 40px auto;
+    background-color: #181818;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    padding: 10px 40px;
+    height: 80px;
+    gap: 15px; 
+    justify-content: flex-start;
+}
+.noComment img{
+    width: 40px;
+}
+
+.noComment p{
+    font-size: 14px;
+    color: #757575;
+}
+
+
+
+
+
+
+/* Footer */
+.footer{
+    width: 100%;
+    height: 50px;
+    background-color: #181818;
+    justify-content: space-around;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 0;
+}
+.footer .icons {
+    gap: 10px;
+}
+.footer .icons img{
+    width: 30px;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.footer .icons img:hover{
+    box-shadow: 1px 1px 5px #e2e2e2, -1px -1px 5px #e2e2e2;
+}
+.footer .footerText {
+    cursor: pointer;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+/* Media Querry */
+@media screen and (max-width: 700px) {
+    body {
+        background-color: lightgreen;
+    }
+
+    /* Navbar */
+    .navbar {
+        padding: 2px 18px;
+    }
+
+    /* navigation */
+    .navigation {
+        gap: 7px;
+    }
+
+    /* hamburger */
+    #hamburger {
+        display: block;
+    }
+
+    .logo img {
+        width: 90px;
+    }
+
+    /* Hide the Menu  */
+    .menu ul {
+        display: none;
+    }
+
+    /* Buttons */
+    .navbar button {
+        padding: 5px 7px;
+        font-size: 11px;
+    }
+
+    /* Header */
+    .header {
+        height: 64vh;
+    }
+
+    .overlay{
+        padding: 63px 0px 0px 22px;
+    }
+
+    /* text */
+    .overlay .text h3 {
+        font-size: 22px;
+        line-height: 21px;
+    }
+
+    .overlay .text h3 span {
+        font-size: 27px;
+    }
+
+    .overlay .text p {
+        font-size: 7px;
+    }
+
+
+    /* Paragraph */
+    .para {
+        width: 90%;
+        font-size: 9px;
+    margin-top: 17px;
+    }
+
+    /* Explore Button */
+    .exploreBtn {
+        margin: 16px 4px;
+        padding: 7px 6px;
+        font-size: 8px;
+    }
+/* Container */
+    .container {
+        padding: 10px 52px 112px 52px;
+    }
+
+    /* THread Box */
+.box{
+    flex-direction: column;
+    margin: 80px 16px 20px 16px;
+    padding: 23px;
+    overflow: hidden;
+}
+.box div {
+    width: 100%;
+}
+.box_img {
+    width: 90%;
+}
+.heading {
+    margin: 20px 30px 10px 20px;
+}
+
+
+.threadHeader {
+flex-direction: column;
+}
+.threadHeader div {
+    width: 100%;
+}
+.questionForm label{
+    font-size: 11px;
+}
+.threadBox h2{
+    font-size: 18px;
+}
+.thread h2{
+    font-size: 12px;
+}
+.nothread{
+    width: 61vw;
+    padding: 10px 12px;
+    gap: 5px;
+    margin: 31px auto;
+}
+.nothread img{
+   width: 35px;
+}
+.nothread h2{
+    font-size: 13px;
+}
+.nothread p{
+    font-size: 10px;
+}
+.threadBox{
+    margin: 30px 0px 100px 0px;
+    padding: 10px;
+}
+.thread {
+    padding: 10px 10px;
+    gap: 20px;
+}
+.thread img {
+    width: 25px;
+}
+.thread p {
+   font-size: 7px;
+}
+.thread div div p {
+    font-size: 9px;
+}
+
+
+
+.commentContainer {
+    margin: 80px 15px 50px 15px;
+}
+.commentBox h2 {
+    font-size: 18px;
+}
+.commentBox p {
+    color: rgb(184, 184, 184);
+    font-size: 10px;
+}
+.heading h3 {
+    font-size: 19px;
+}
+.heading h2 {
+    font-size: 19px;
+}
+.questionForm {
+    width: 100%;
+}
+.noComment {
+    width: 80%;
+    padding: 10px 15px;
+}
+.noComment p {
+    font-size: 10px;
+}
+.noComment h2 {
+    font-size: 16px;
+}
+.noComment img {
+    width: 35px;
+}
+
+.comment img {
+    width: 25px;
+}
+.comment h4 {
+    font-size: 7px;
+}
+.comment div h3 {
+    font-size: 15px;
+}
+
+
+    /* Footer */
+    .footer {
+        height: 100px;
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;
+    }
+}
