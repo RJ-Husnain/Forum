@@ -87,7 +87,7 @@ $result3 = mysqli_query($conn, $sql3);
                 $desc= $row['thread_desc'];
                 
                 echo'
-                <a href="/forum/comments.php?threadid='.$threadid.'&catagoryid='.$id.'">
+               <a href="/forum/comments.php?threadid=' . $threadid . '&catid=' . $id . '">
                 <div class="thread flex">
                 <div class="flex">
                 <img src="images/user.png" alt="">
@@ -108,7 +108,7 @@ echo'Error';
     }
 
         ?>
-        
+
     </div>
     <?php  include'partials/_footer.php'; ?>
 </body>

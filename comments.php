@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,25 +14,31 @@
     <?php  include'partials/_navbar.php'; ?>
     <div class="commentContainer">
 
-    <?php
+        <?php
 $thread_id = $_GET['threadid'];
-$id = $_GET['catagoryid'];
-        $sql = "SELECT * FROM `threads` Where thread_id=$thread_id";
-        $result = mysqli_query($conn, $sql);
+$id = $_GET['catid'];
+
+$sql = "SELECT * FROM `threads` WHERE `thread_id` = $thread_id AND `catagory_id` = $id";
+$result = mysqli_query($conn, $sql);
         if($result){
-            $row = mysqli_fetch_assoc($result);
-            $title= $row['thread_title'];
-        $desc= $row['thread_desc'];
+$row = mysqli_fetch_assoc($result);
+                $thread_title= $row['thread_title'];
+                $thread_desc= $row['thread_desc'];
+            
                 echo '
                  <div class="commentBox">
-            <h2>'.$title.'</h2>
-            <p>'.$desc.'</p>
+            <h2>'.$thread_title.'</h2>
+            <p>'.$thread_desc.'</p>
         </div>
                 ';
+
             }
         else{
             echo 'Error';
         }
+
+
+
 
         // Insert Data from form
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -47,7 +51,7 @@ echo"Error";
     }
 }
 ?>
-       
+
         <div class="heading">
             <h3>Write your thought here</h3>
         </div>
@@ -99,10 +103,10 @@ echo'Error';
 
 
         ?>
-        
-        
 
-        
+
+
+
     </div>
     <?php  include'partials/_footer.php'; ?>
 </body>
