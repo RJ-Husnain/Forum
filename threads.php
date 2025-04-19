@@ -68,7 +68,7 @@ echo"Error";
 $sql3= "SELECT * FROM `threads` Where `catagory_id`=$id";
 $result3 = mysqli_query($conn, $sql3);
         if($result3){
-        $threadid= 0;
+        
         if(mysqli_num_rows($result3) < 1){
             echo'
             <div class="nothread flex">
@@ -82,12 +82,12 @@ $result3 = mysqli_query($conn, $sql3);
         }else{
 
             while ($row = mysqli_fetch_assoc($result3)) {
-                $threadid +=1;
+                $threadid=$row['thread_id'];
                 $title= $row['thread_title'];
                 $desc= $row['thread_desc'];
                 
                 echo'
-               <a href="/forum/comments.php?threadid=' . $threadid . '&catid=' . $id . '">
+                <a href="/forum/comments.php?threadid='.$threadid.'&catid='.$id.'">
                 <div class="thread flex">
                 <div class="flex">
                 <img src="images/user.png" alt="">
@@ -111,8 +111,9 @@ echo'Error';
 
     </div>
     <?php  include'partials/_footer.php'; ?>
-</body>
 
+    
+<script src="script.js"></script>
 </body>
 
 </html>

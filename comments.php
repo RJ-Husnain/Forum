@@ -13,15 +13,16 @@
     <?php  include'partials/_dbconnect.php'; ?>
     <?php  include'partials/_navbar.php'; ?>
     <div class="commentContainer">
-
         <?php
+
 $thread_id = $_GET['threadid'];
 $id = $_GET['catid'];
 
 $sql = "SELECT * FROM `threads` WHERE `thread_id` = $thread_id AND `catagory_id` = $id";
+
 $result = mysqli_query($conn, $sql);
-        if($result){
-$row = mysqli_fetch_assoc($result);
+if ($result) {
+    $row = mysqli_fetch_assoc($result);
                 $thread_title= $row['thread_title'];
                 $thread_desc= $row['thread_desc'];
             
@@ -36,6 +37,27 @@ $row = mysqli_fetch_assoc($result);
         else{
             echo 'Error';
         }
+
+
+// if ($result && mysqli_num_rows($result) > 0) {
+//     $row = mysqli_fetch_assoc($result);
+//     $thread_title = $row['thread_title'];
+//     $thread_desc = $row['thread_desc'];
+
+//     echo '
+//         <div class="commentBox">
+//             <h2>' . $thread_title . '</h2>
+//             <p>' . $thread_desc . '</p>
+//         </div>
+//     ';
+// } else {
+//     echo '
+//         <div class="commentBox">
+//             <h2>Thread not found</h2>
+//             <p>The thread you are looking for might have been removed or does not exist.</p>
+//         </div>
+//     ';
+// }
 
 
 
