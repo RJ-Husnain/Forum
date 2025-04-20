@@ -13,26 +13,31 @@
             <h2>Signup to <span>R.J Tech</span></h2>
             <p>Already have an Account <a href="/forum/partials/_login.php">Login</a></p>
             <form class="flex" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-<div class="flex">
+<div class="flex input">
     <label for="username">Username</label>
     <input type="text" id="username" name="username" required>
+    <p>Username Already Exsit!</p>
 </div>
-
-<div class="flex">
+ 
+<div class="flex input">
     <label for="password">Password</label>
+    <h6>( Password must contain a digit, uppercase, lowercase, symbol and max 8-digits long )</h6> 
     <input type="password" id="password" name="password" required>
+    <p class="weak">Password is Weak!</p>
 </div>
 
-<div class="flex">
+<div class="flex input">
     <label for="cpassword">Confirm Password</label>
-    <input type="cpassword" id="cpassword" name="cpassword" required>
+    <input type="password" id="cpassword" name="cpassword" required>
+    <p class="match">Password doesn't Match!</p>
 </div>
-    <button type="submit">Login</button>
+    <button type="submit">Signup</button>
             </form>
         </div>
         <div class="img">
             <img src="../images/form.jpg" alt="Login Illustration">
         </div>
     </div>
+    <script src="form.js"></script>
 </body>
 </html>
