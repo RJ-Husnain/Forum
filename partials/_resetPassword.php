@@ -1,3 +1,28 @@
+<?php
+include '_dbconnect.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id= $_GET['id'];
+    $password= $_POST['password'];
+    $password_hash= password_hash($password, PASSWORD_DEFAULT);
+
+$checkSql = "SELECT * FROM `users` WHERE `user_id` = '$id'";
+   $checkResult = $conn->query($checkSql);
+
+$sql = "UPDATE `users` SET `password` = '$password_hash' WHERE `users`.`user_id` = $id;";
+$result = $conn->query($sql);
+if ($result) {
+    // echo"Record updated successfully";
+    header("Location: _login.php");
+    exit;
+}else{
+    echo"Record not updated";
+}
+
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +37,7 @@
         <div class="form">
             <h2>Reset <span>Password</span></h2>
             <p>Doesn't have an account <a href="/forum/partials/_signup.php">Signup</a></p>
-            <form class="flex" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+            <form class="flex" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) . '?id=' . $_GET['id']; ?>">
     <div class="flex input">
     <label for="password">Password</label>
     <h6>( Password must contain a digit, uppercase, lowercase, symbol and max 8-digits long )</h6> 

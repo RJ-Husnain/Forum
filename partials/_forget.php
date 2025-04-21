@@ -1,3 +1,25 @@
+<?php
+include '_dbconnect.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+   $username= $_POST['username'];
+   
+   $checkSql = "SELECT * FROM `users` WHERE `Username` = '$username'";
+   $checkResult = $conn->query($checkSql);
+   if(mysqli_num_rows($checkResult) > 0){
+    $row = mysqli_fetch_assoc($checkResult);
+    $id= $row['user_id'];
+        //    echo'Username Found';
+        header("Location: _resetPassword.php?id=$id");
+        exit;
+    }
+    else{
+        echo"username doesn't exist";
+    }
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

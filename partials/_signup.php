@@ -1,3 +1,31 @@
+<?php
+include '_dbconnect.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+   $username= $_POST['username'];
+   $password= $_POST['password'];
+   $password_hash= password_hash($password, PASSWORD_DEFAULT);
+
+   $checkSql = "SELECT * FROM `users` WHERE `Username` = '$username'";
+   $checkResult = $conn->query($checkSql);
+   if(mysqli_num_rows($checkResult) == 0){
+       $sql="INSERT INTO `users` (`Username`, `password`) VALUES ('$username', '$password_hash' );";
+       $result = $conn->query($sql);
+       if ($result) {
+           // echo'Password Inserted Successfully.';
+           header("Location: _login.php");
+           exit;
+        }else{
+            echo"Password didn't inserted.";
+        }
+    }
+    else{
+        echo"username already exist";
+    }
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

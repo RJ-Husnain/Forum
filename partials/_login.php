@@ -1,3 +1,29 @@
+<?php
+include '_dbconnect.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+   $username= $_POST['username'];
+   $password= $_POST['password'];
+   
+   $checkSql = "SELECT * FROM `users` WHERE `Username` = '$username'";
+   $checkResult = $conn->query($checkSql);
+   if(mysqli_num_rows($checkResult) > 0){
+       $row = mysqli_fetch_assoc($checkResult);
+       $hash = $row['password'];
+       if (password_verify($password, $hash)) {
+        //    echo'login Successfully.';
+        header("Location: ../index.php");
+        exit;
+        }else{
+            echo" incorrect Password";
+        }
+    }
+    else{
+        echo"username doesn't exist";
+    }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
