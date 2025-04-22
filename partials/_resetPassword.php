@@ -1,5 +1,9 @@
 <?php
 include '_dbconnect.php';
+
+$setError = false; 
+$errorMsg = "";
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id= $_GET['id'];
     $password= $_POST['password'];
@@ -15,7 +19,9 @@ if ($result) {
     header("Location: _login.php");
     exit;
 }else{
-    echo"Record not updated";
+    // echo"Record not updated;
+    $setError = true;
+            $errorMsg = "Record not updated";
 }
 
 
@@ -32,6 +38,15 @@ if ($result) {
     <link rel="stylesheet" href="form.css">
 </head>
 <body class="flex">
+<?php
+    if ($setError) {
+       echo '
+       <div class="error flex">
+           <h2>'.$errorMsg.'</h2>
+       </div>
+       ';
+    }
+    ?>
     <!-- login -->
     <div class="loginForm flex">
         <div class="form">

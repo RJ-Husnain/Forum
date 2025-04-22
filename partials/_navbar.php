@@ -16,12 +16,14 @@ echo '
         </div>
     </div>
     <div class="buttons flex">
-        <a href="/forum/partials/_login.php">
-            <button id="login">Login</button>  
-        </a>
-        <a href="/forum/partials/_signup.php">
-            <button id="signup">Sign up</button>
-        </a>
+    
+    <a href="/forum/partials/_login.php">
+    <button id="login">login</button>
+    </a>
+
+    <a href="/forum/partials/_signup.php">
+    <button id="signup">Sign up</button>
+    </a>
     </div>
 </nav>
 ';

@@ -1,5 +1,9 @@
 <?php
 include '_dbconnect.php';
+
+$setError = false; 
+$errorMsg = "";
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $username= $_POST['username'];
    $password= $_POST['password'];
@@ -11,14 +15,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
        $hash = $row['password'];
        if (password_verify($password, $hash)) {
         //    echo'login Successfully.';
+        session_start();
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $username;
+
         header("Location: ../index.php");
         exit;
         }else{
-            echo" incorrect Password";
+            // echo" incorrect Password";
+            $setError = true;
+            $errorMsg = "Incorrect Password";
         }
     }
     else{
-        echo"username doesn't exist";
+        // echo"username doesn't exist";
+        $setError = true;
+            $errorMsg = "Username doesn't exist";
     }
     }
 
@@ -33,6 +45,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="form.css">
 </head>
 <body class="flex">
+<?php
+    if ($setError) {
+       echo '
+       <div class="error flex">
+           <h2>'.$errorMsg.'</h2>
+       </div>
+       ';
+    }
+    ?>
     <!-- login -->
     <div class="loginForm flex">
         <div class="form">

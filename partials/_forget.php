@@ -1,5 +1,9 @@
 <?php
 include '_dbconnect.php';
+
+$setError = false; 
+$errorMsg = "";
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $username= $_POST['username'];
    
@@ -13,7 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
     else{
-        echo"username doesn't exist";
+        // echo"username doesn't exist";
+        $setError = true;
+            $errorMsg = "Username doesn't exist";
     }
     }
 
@@ -29,6 +35,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="form.css">
 </head>
 <body class="flex">
+<?php
+    if ($setError) {
+       echo '
+       <div class="error flex">
+           <h2>'.$errorMsg.'</h2>
+       </div>
+       ';
+    }
+    ?>
     <!-- login -->
     <div class="loginForm flex">
         <div class="form">
