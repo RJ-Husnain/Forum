@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>R.J Tech -  Empower world with Tech</title>
+    <title>R.J Tech - Empower world with Tech</title>
     <link rel="stylesheet" href="src/utility.css">
     <link rel="stylesheet" href="src/style.css">
 </head>
+
 <body>
-<?php  include'partials/_dbconnect.php'; ?>
-<?php  include'partials/_navbar.php'; ?>
-<?php  include'partials/_header.php'; ?>
+    <?php  include'partials/_dbconnect.php'; ?>
+    <?php  include'partials/_navbar.php'; ?>
+    <?php  include'partials/_header.php'; ?>
+
+    <div id="profileBox" class="flex">
+        <div class="img_box flex">
+            <img src="images/user.png" alt="User Avatar">
+        </div>
+        <div class="text_box flex">
+            <p>Husnain</p>
+            <a href="/forum/partials/_logout.php">
+            <button id="logout">Logout</button>
+        </a>
+        </div>
+    </div>
 
 
-<div class="heading flex">
-    <h2>Browse Catagory</h2>
-</div>
+    <div class="heading flex">
+        <h2>Browse Catagory</h2>
+    </div>
 
-<!-- Container -->
-<div class="container flex ">
-<?php
+    <!-- Container -->
+    <div class="container flex ">
+        <?php
 $sql = "SELECT * FROM `catagory`";
 $result = mysqli_query($conn, $sql);
 if($result){
@@ -51,11 +65,13 @@ $id= 0;
 ?>
 
 
-</div>
+    </div>
 
-<!-- Footer -->
- <?php  include'partials/_footer.php'; ?>
+    <!-- Footer -->
+    <?php  include'partials/_footer.php'; ?>
+
+    <script src="script.js"></script>
+
 </body>
 
-</body>
 </html>

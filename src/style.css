@@ -109,11 +109,105 @@ button:hover {
     background-color: #00e5ff;
 }
 
+#logout {
+    background-color: #e63946; 
+    color: #ffffff;
+}
+#logout:hover{
+    box-shadow: 1px 1px 5px #e63946, -1px -1px 5px #e63946;
+}
+
+.anchor{
+text-decoration: none;
+  }
+
+
+#profile {
+    background-color: #00e5ff;
+    color: #000000;
+    border: none;
+    padding: 5px 8px 4px 8px;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    justify-content: center;
+    margin-bottom: 1px;
+  }
+  
+  #profile:hover {
+    box-shadow: 1px 1px 5px #00e5ff, -1px -1px 5px #00e5ff;
+}
+  
+  
+  #profile_img {
+    width: 18px;
+    height: 18px;
+  }
+  
+
 #login:hover {
     box-shadow: 1px 1px 5px #00e5ff, -1px -1px 5px #00e5ff;
 }
 
 /* Navbar close here */
+
+/* Profile box */
+#profileBox {
+    position: absolute;
+    z-index: 5;
+    top: 45px;
+    right: 50px;
+    width: 200px;
+    background-color: #030c0c;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    padding: 15px;
+    gap: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  #profileBox:hover {
+    background-color: #051818;
+  }
+  #profileBox .text_box {
+ width: 75%;
+align-items: flex-start;
+ flex-direction: column;
+ } 
+  #profileBox .img_box{
+ width:35%;
+ } 
+  
+  #profileBox img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #0ef;
+  }
+
+   #profileBox div p {
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+  } 
+  
+   .text_box #logout {
+    margin-top: 6px;
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .text_box #logout:hover {
+    box-shadow: 1px 1px 5px #e63946, -1px -1px 5px #e63946;;
+  } 
+  
 
 
 /* header Goes Here */
