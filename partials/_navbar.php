@@ -21,13 +21,10 @@ echo '
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     echo '
-    <a href="" class="anchor">
      <button id="profile" class="flex">
         <img src="/forum/icons/profile.svg" alt="Profile Icon" id="profile_img">
         <p>Profile</p>
-    </button>
-    <a/>
-       
+    </button>     
     ';
 } else {
     echo '

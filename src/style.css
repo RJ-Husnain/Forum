@@ -164,6 +164,10 @@ text-decoration: none;
     padding: 15px;
     gap: 20px;
     transition: all 0.3s ease;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    display: none;
   }
   
   #profileBox:hover {

@@ -14,7 +14,7 @@
     <?php  include'partials/_navbar.php'; ?>
     <?php  include'partials/_header.php'; ?>
 
-    <div id="profileBox" class="flex">
+    <div id="profileBox">
         <div class="img_box flex">
             <img src="images/user.png" alt="User Avatar">
         </div>
