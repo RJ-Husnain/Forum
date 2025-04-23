@@ -25,11 +25,17 @@ if ($result) {
     $row = mysqli_fetch_assoc($result);
                 $thread_title= $row['thread_title'];
                 $thread_desc= $row['thread_desc'];
+                $user_id= $row['user_id'];
+                $userSql="SELECT * FROM `users` Where user_id=$user_id";
+                $userResult=mysqli_query($conn, $userSql);
+                $userRow = mysqli_fetch_assoc($userResult);
+                $username=$userRow['Username'];
             
                 echo '
                  <div class="commentBox">
             <h2>'.$thread_title.'</h2>
             <p>'.$thread_desc.'</p>
+            <p class="author"> Asked by: '.$username.'</p>
         </div>
                 ';
 
@@ -39,34 +45,11 @@ if ($result) {
         }
 
 
-// if ($result && mysqli_num_rows($result) > 0) {
-//     $row = mysqli_fetch_assoc($result);
-//     $thread_title = $row['thread_title'];
-//     $thread_desc = $row['thread_desc'];
-
-//     echo '
-//         <div class="commentBox">
-//             <h2>' . $thread_title . '</h2>
-//             <p>' . $thread_desc . '</p>
-//         </div>
-//     ';
-// } else {
-//     echo '
-//         <div class="commentBox">
-//             <h2>Thread not found</h2>
-//             <p>The thread you are looking for might have been removed or does not exist.</p>
-//         </div>
-//     ';
-// }
-
-
-
-
         // Insert Data from form
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $comment = $_POST['comment'];
-
-        $sql2= "INSERT INTO `comments` ( `comment_title`, `user_id`, `thread_id`, `catagory_id`) VALUES ('$comment',  '0', '$thread_id', '$id');";
+    $user_id = $_SESSION['user_id'];
+        $sql2= "INSERT INTO `comments` ( `comment_title`, `user_id`, `thread_id`, `catagory_id`) VALUES ('$comment',  '$user_id', '$thread_id', '$id');";
         $result2 = mysqli_query($conn, $sql2);
         if(!$result2){
 echo"Error";
@@ -77,13 +60,26 @@ echo"Error";
         <div class="heading">
             <h3>Write your thought here</h3>
         </div>
-        <div class="questionForm">
+        <?php
+        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+            echo '
+            <div class="questionForm">
             <form action="" method="POST">
                 <label for="comment">Write your suggestion</label>
                 <input type="text" name="comment" id="">
                 <button type="submit">Submit</button>
             </form>
-        </div>
+        </div>';
+        } else {
+            echo '<div class="loginRestriction flex">
+    <h2>Not logged in!</h2>
+    <p>Login first to post a question.</p>
+</div>';
+        }
+        
+            ?>
+
+
         <div class="heading">
             <h2>Browse the Suggestion</h2>
         </div>
@@ -105,6 +101,11 @@ $result3 = mysqli_query($conn, $sql3);
 
             while ($row = mysqli_fetch_assoc($result3)) {
                 $comment= $row['comment_title'];
+                $user_id= $row['user_id'];
+                $userSql="SELECT * FROM `users` Where user_id=$user_id";
+                $userResult=mysqli_query($conn, $userSql);
+                $userRow = mysqli_fetch_assoc($userResult);
+                $username=$userRow['Username'];
                 
                 echo'
                 <div class="comment flex">
@@ -112,7 +113,7 @@ $result3 = mysqli_query($conn, $sql3);
                 <img src="images/user.png" alt="">
                 <h3>'.$comment.'</h3>
             </div>
-            <h4>asked by: rjtech@gmail.com</h4>
+            <h4>asked by: '.$username.'</h4>
         </div>
                 ';
                 
@@ -131,6 +132,7 @@ echo'Error';
 
     </div>
     <?php  include'partials/_footer.php'; ?>
+    <script src="script.js"></script>
 </body>
 
 </body>

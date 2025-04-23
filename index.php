@@ -14,17 +14,7 @@
     <?php  include'partials/_navbar.php'; ?>
     <?php  include'partials/_header.php'; ?>
 
-    <div id="profileBox">
-        <div class="img_box flex">
-            <img src="images/user.png" alt="User Avatar">
-        </div>
-        <div class="text_box flex">
-            <p>Husnain</p>
-            <a href="/forum/partials/_logout.php">
-            <button id="logout">Logout</button>
-        </a>
-        </div>
-    </div>
+   
 
 
     <div class="heading flex">

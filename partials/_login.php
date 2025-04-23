@@ -13,11 +13,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    if(mysqli_num_rows($checkResult) > 0){
        $row = mysqli_fetch_assoc($checkResult);
        $hash = $row['password'];
+       $user_id = $row['user_id'];
        if (password_verify($password, $hash)) {
-        //    echo'login Successfully.';
-        session_start();
+           //    echo'login Successfully.';
+           session_start();
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $username;
+        $_SESSION['user_id'] = $user_id;
 
         header("Location: ../index.php");
         exit;

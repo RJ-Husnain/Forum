@@ -38,6 +38,32 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 }
 
 echo '
+        <div id="hamburgerBox">
+            <ul>
+                <li><a href="/forum/index.php">Home</a></li>
+                <li><a href="#">Category</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div id="profileBox">
+            <div class="img_box flex">
+                <img src="/forum/images/user.png" alt="">
+            </div>
+            <div class="text_box flex">
+                <p>';
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    echo $_SESSION['username'];
+}
+
+echo '</p>
+                <a href="/forum/partials/_logout.php">
+                    <button id="logout">Logout</button>
+                </a>
+            </div>
+        </div>
     </div>
 </nav>';
 ?>
